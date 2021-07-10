@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ping Pong</title>
+    <link rel="shortcut icon" href="icons8-ping-pong-96.png" type="image/x-icon">
+  </head>
+  <body>
+    <style>
+      body {
+        background: url(./wp1961371.jpg);
+        background-position: center;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100vh;
+        padding: 0;
+        margin: 0;
+        font-family: fantasy;
+      }
+
+      canvas#pong {
+        border: 4px solid white;
+        padding: 4px;
+        background-color: #46a07e;
+      }
+
+      .bottom-sec {
+        background-color: darkblue;
+        padding: 20px;
+        margin-top: 10px;
+        border-radius: 10px;
+      }
+
+      a {
+        cursor: pointer;
+        margin: 0px 10px;
+        padding: 10px 20px;
+        background-color: whitesmoke;
+        color: black;
+        font-weight: bold;
+        text-transform: uppercase;
+        border-radius: 5px;
+        border: none;
+        transition: 0.2s ease-in;
+      }
+
+      #pause {
+        background-color: orange;
+      }
+      #reset {
+        background-color: orangered;
+      }
+
+      a:hover {
+        opacity: 0.8;
+      }
+
+      .welcome-screen {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+        background: rgba(0, 0, 0, 0.9);
+        color: white;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .welcome-screen h2 {
+        font-size: 3rem;
+      }
+      .welcome-screen p {
+        color: yellow;
+        font-size: 1.5rem;
+      }
+      p span#enterGame {
+        padding: 10px;
+        background-color: white;
+        color: black;
+        border-radius: 10px;
+        margin: 0px 10px;
+        cursor: pointer;
+        transition: 0.2s ease-in;
+      }
+      span#enterGame:hover {
+        opacity: 0.8;
+      }
+
+      #left-sec{
+        position: absolute;
+        top: 28px;
+        left: -250px;
+        z-index: 2;
+        width: 230px;
+        height: 500px;
+        background: #1b553f;
+        border: 4px solid white;
+        color: white;
+        padding: 10px;
+        opacity: 0;
+        transition: 0.4s ease-in;
+        overflow-y: auto;
+      }
+
+      ::-webkit-scrollbar{
+        width: 1px;
+      }
+
+      #left-sec h2{
+        text-align: center;
+      }
+      li{
+        margin: 5px 0px;
+        font-weight: bold;
+        color: whitesmoke;
+      }
+
+      a#leftBtn{
+        position: absolute;
+        left: 0;
+        bottom: 20px;
+       background-color: darkorange;
+       color: white;
+       writing-mode: vertical-lr;
+       padding: 10px;
+       border-radius: 50%;
+
+      }
+
+    </style>
+
+    <canvas id="pong" width="800" height="500"></canvas>
+
+    <div class="bottom-sec">
+      <a id="start">start</a>
+      <a id="pause">pause</a>
+      <a id="reset">restart</a>
+    </div>
+
+    <div id="left-sec" class="hidden">
+      <h2>Tips!</h2>
+        <li>To start the game you can use buttons on the bottom control panel</li>
+        <li>Click start button or Enter key in your keyboard to start a new game</li>
+        <li>Click pause button or Enter after the game starts to pause the game</li>
+        <li>Click restart button or R key in your keyboard to reset the game</li>
+        <li>You can only control your ping pong pad with mouse, move up and down to move the pad in mouses direction</li>
+        <li>Once you started the game you will play against computer AI</li>
+        <li>Every time the ball hits the pads pad's length will be cut and the ball gets faster speed, the game will go harder every second</li>
+        <li>The game is very simple, thank you for playing!</li>
+        <li>Have fun!</li>
+        <p style="font-weight: bold; color: orangered;">Designed in 2021 by Javohir-K</p>
+    </div>
+    <div class="left-sec-btn">
+      <a id="leftBtn"><img src="icons8-idea-160.png" width="40px" alt=""></a>
+    </div>
+    
+    
+    <div id="welcomeScreen" class="welcome-screen">
+      <h2>Welcome to ping pong game!</h2>
+      <p>Click <span id="enterGame">here</span> to start the Game</p>
+    </div>
+
+    <div id="gameStarted" class="started"></div>
+
+    <!-- The game created by Javohir-K -->
+
+    <script src="pong.js"></script>
+  </body>
+</html>
